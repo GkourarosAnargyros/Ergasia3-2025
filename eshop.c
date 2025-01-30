@@ -1,7 +1,7 @@
-#include "inventory.h"
+#include "shop.h"
 
 // Dimiourgia katalogou proiontwn
-void dimiourgiaKatalogou(inventory proionta[]) {
+void dimiourgiaKatalogou(katalogos proionta[]) {
     for (int i = 0; i < ARITHMOS_PROIONTON; i++) {
         // Dimiourgia perigrafhs gia kathe proion
         sprintf(proionta[i].perigrafh, "Proion %d", i + 1);
@@ -10,8 +10,8 @@ void dimiourgiaKatalogou(inventory proionta[]) {
     } 
 }
 
-// Xeirismos paraggelion apo pelati
-void epexergasiaParaggelias(inventory proionta[], int pelatis_syndesi, int* esoda, int* epitiximenes_paraggelies, int* apotiximenes_paraggelies, int apotyxia[][PELATES], int sixnotita[], int pelatis_deiktis) {
+// Xeirismoi paraggelion apo pelati
+void epexergasiaParaggelias(katalogos proionta[], int pelatis_syndesi, int* esoda, int* epitiximenes_paraggelies, int* apotiximenes_paraggelies, int apotyxia[][PELATES], int sixnotita[], int pelatis_deiktis) {
     for (int i = 0; i < AGORES; i++) {
         int proion;
         read(pelatis_syndesi, &proion, sizeof(int)); // Diavazei ton kodiko tou proiontos apo ton pelati
@@ -49,7 +49,7 @@ void epexergasiaParaggelias(inventory proionta[], int pelatis_syndesi, int* esod
 
 int main() {
     srand(time(NULL)); // Arxikopoihsh tuxaioy arithmou
-    inventory proionta[ARITHMOS_PROIONTON];
+    katalogos proionta[ARITHMOS_PROIONTON];
     dimiourgiaKatalogou(proionta); 
 
     int server_fd = socket(AF_INET, SOCK_STREAM, 0); // Dimiourgia tou server
